@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Travel the Globe</title>
+  <description>Everything you need to know to travel smart and stay safe.</description>
+  <item>
+    <title>Frankfurt to Greece</title>
+    <link>https://www.lonelyplanet.com/greece</link>
+    <description>Visit link to know more about Greece</description>
+  </item>
+  <item>
+    <title>Frankfurt to Amsterdam</title>
+    <link>https://www.lonelyplanet.com/amsterdam</link>
+    <description>Visit link to know more about Amsterdam</description>
+  </item>
+  <item>
+    <title>Frankfurt to Italy</title>
+    <link></link>
+    <description>Visit link to know more about Italy</description>
+  </item>
+  <item>
+    <title>Frankfurt to belgium</title>
+    <link>https://www.lonelyplanet.com/belgium</link>
+    <description>Visit link to know more about Belgium</description>
+  </item>
+  <item>
+    <title>Frankfurt to Prague</title>
+    <link>https://www.lonelyplanet.com/prague</link>
+    <description>Visit link to know more about Prague</description>
+  </item>
+  <item>
+    <title>Frankfurt to India</title>
+    <link>https://www.lonelyplanet.com/india</link>
+    <description>Visit link to know more about India</description>
+  </item>
+  <item>
+    <title>Mykonos to Amsterdam</title>
+    <link>https://www.lonelyplanet.com/Amsterdam</link>
+    <description>Visit link to know more about Amsterdam</description>
+  </item>
+  <item>
+    <title>Frankfurt to Barcelona</title>
+    <link>https://www.lonelyplanet.com/barcelona</link>
+    <description>Visit link to know more about Barcelona</description>
+  </item>
+<item>
+    <title>Frankfurt to Florida</title>
+    <link>https://www.lonelyplanet.com/florida</link>
+    <description>Visit link to know more about Florida</description>
+  </item><item>
+    <title>Frankfurt to NewYork</title>
+    <link>https://www.lonelyplanet.com/newyork</link>
+    <description>Visit link to know more about NewYork</description>
+  </item><item>
+    <title>Frankfurt to Singapore</title>
+    <link>https://www.lonelyplanet.com/singapore</link>
+    <description>Visit link to know more about Singapore</description>
+  </item>
+</channel>
+</rss>

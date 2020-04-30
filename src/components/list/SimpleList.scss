@@ -1,0 +1,29 @@
+.simpleList {
+  margin: 2rem auto;
+  max-width:25rem;
+  a{
+    color:#00afab;
+  }
+  &-item{
+
+  }
+  &-description{
+    font-size: .8rem;
+    margin-top: .3rem;
+  }
+  &-pagination{
+    list-style: none;
+    margin: 2rem auto;
+    max-width:25rem;
+    li{
+      margin:0 1rem;
+      color:#00afab;
+      font-size:1rem;
+      cursor:pointer;
+      transition:.2s linear;
+      &:hover{
+        font-weight:bold;
+      }
+    }
+  }
+}

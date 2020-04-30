@@ -1,0 +1,112 @@
+@import "variables";
+
+body {
+ color: $font-color;
+ font-size: $font-size-base;
+ font-family: $font-family;
+}
+
+@mixin transition($time, $type) {
+	-webkit-transition: all $time $type;
+	-moz-transition: all $time $type;
+	-o-transition: all $time $type;
+	-ms-transition: all $time $type;
+	transition: all $time $type;
+}
+
+h1 {
+	font-size: $font-size-h1;
+}
+
+h2 {
+	font-size: $font-size-h2;
+}
+h3 {
+	font-size: $font-size-h3;
+}
+
+.btn {
+	box-sizing: border-box;
+	background-color: $transparent-bg;
+	font-size: $font-size-base;
+	font-weight: $font-weight-semi;
+	border-radius: 0;
+	border: none;
+	@include transition($fast-transition-time, linear);
+
+	&:hover,
+	&:focus {
+		outline: 0 !important;
+	}
+
+	&:active,
+	&.active,
+	.open > &.dropdown-toggle {
+		outline: 0 !important;
+	}
+
+	&.btn-icon {
+		padding: $padding-base-vertical;
+	}
+}
+
+.btn-primary {
+	background-color: $color-primary;
+	color: $color-white;
+	font-size: $font-size-button;
+	text-transform: uppercase;
+	font-weight: $font-weight-light;
+	padding: $padding-base-vertical $padding-base-horizontal;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+	.open > &.dropdown-toggle,
+	&:not(:disabled):not(.disabled):active {
+		background-color: $color-primary-hover;
+		color: $color-white;
+		border: 0;
+	}
+}
+
+.btn-secondary {
+	background-color: $color-white;
+	border: 1px solid $color-one;
+	color: $color-one;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+	.open > &.dropdown-toggle,
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active {
+		background-color: $color-primary;
+		border-color: $color-primary;
+		color: $color-white;
+	}
+}
+
+.highlight {
+	color: $color-primary;
+}
+
+.padding-left-0 {
+	padding-left: 0;
+}
+.uppercase {
+	text-transform: uppercase;
+}
+
+.hidden-xs {
+	@media (max-width: $screen-mobile) {
+		display: none;
+	}
+}
+
+.hidden-sm {
+	@media (min-width: $screen-tablet) {
+		display: none;
+	}
+}
