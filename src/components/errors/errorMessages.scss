@@ -1,5 +1,7 @@
+@import "../../styles/variables";
+
 .errors{
-    color:#ff0000;
+    color:$error-color;
     margin-top:2rem;
     font-size:1.5rem
   }

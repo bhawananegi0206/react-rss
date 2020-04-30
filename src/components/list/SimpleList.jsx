@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import "./SimpleList.scss";
 
 class SimpleList extends React.Component {
@@ -38,7 +39,7 @@ class SimpleList extends React.Component {
           {renderList.map((it, index) => (
             <div key={it} className="simpleList selectList--item">
               <div className="flex flex-align-left flex-dir-col pos-rel">
-                <a href={it.links[0].url} className="simpleList-title">
+                <a href={it.links[0].url} className="simpleList-title" target="_blank">
                   {it.title}
                 </a>
                 <div className="simpleList-description">{it.description}</div>

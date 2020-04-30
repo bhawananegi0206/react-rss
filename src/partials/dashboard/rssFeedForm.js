@@ -1,16 +1,24 @@
-import { get, assign } from "lodash";
 import React from "react";
-import PropTypes from "prop-types";
-import XMLParser from "react-xml-parser";
 import TextInput from "../../components/input/textInput";
 import SubmitButton from "../../components/button/submitButton";
 import SimpleList from "../../components/list/SimpleList";
 import ErrorMessages from "../../components/errors/errorMessages";
+import RssFeedService from "../../services/rssFeedService";
+import memoizeOne from "memoize-one";
 import * as rssParser from "react-native-rss-parser";
 import "./rssFeedForm.scss";
 
+const downloadableLinks = memoizeOne((items) =>
+  items.reduce((acc, item) => {
+    if (item.links[0].url.indexOf("http") === 0) {
+      acc.push(item);
+    }
+    return acc;
+  }, [])
+);
+
 class rssFeedForm extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       rssFeedUrl: "",
@@ -20,7 +28,6 @@ class rssFeedForm extends React.Component {
       description: "",
       errors: "",
       invalidText: false,
-      requiredError: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,7 +35,7 @@ class rssFeedForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e, props) {
+  handleChange(e) {
     this.setState({
       rssFeedUrl: e,
       submitButtonDisabled: false,
@@ -41,30 +48,29 @@ class rssFeedForm extends React.Component {
   }
 
   fetchData(url) {
-    fetch(url)
+    RssFeedService.fetch(url)
       .then((response) => {
-        if (!response.ok) {
-          throw Error(response.statusText);
+        if (response.status !== 200) {
+          throw Error(response.response.statusText);
         }
-        return response.text();
+        return response.data;
       })
       .then((responseData) => rssParser.parse(responseData))
       .then((rss) => {
-        const downloadableLinks = rss.items.reduce((acc, item) => {
-          if (item.links[0].url.indexOf("http") === 0) {
-            acc.push(item);
-          }
-          return acc;
-        }, []);
         this.setState({
-          itemsList: downloadableLinks,
+          itemsList: downloadableLinks(rss.items),
           title: rss.title,
           description: rss.description,
           invalidText: false,
+          errors: "",
         });
       })
       .catch((error) =>
-        this.setState({ errors: error.message, invalidText: false })
+        this.setState({
+          errors: error.response.statusText,
+          invalidText: false,
+          itemsList: [],
+        })
       );
   }
 
@@ -75,6 +81,7 @@ class rssFeedForm extends React.Component {
     if (!rssFeedUrl.match(url_pattern)) {
       this.setState({
         invalidText: true,
+        errors: "",
       });
     } else {
       this.fetchData(rssFeedUrl);
@@ -90,7 +97,6 @@ class rssFeedForm extends React.Component {
       title,
       description,
       invalidText,
-      requiredError,
     } = this.state;
 
     return (
@@ -106,7 +112,7 @@ class rssFeedForm extends React.Component {
                   <TextInput
                     name="name"
                     value={rssFeedUrl}
-                    placeholder="Step name"
+                    placeholder="Enter RSS URL to display"
                     onChange={this.handleChange}
                     className="large"
                     errorMessage="Please enter correct RSS feed URL"
@@ -116,7 +122,7 @@ class rssFeedForm extends React.Component {
                 <SubmitButton
                   onClick={this.handleSave}
                   disabled={submitButtonDisabled}
-                  className="button--large"
+                  className="btn-primary btn"
                 >
                   <i className="avb avb-link" />
                   Click here
@@ -135,6 +141,5 @@ class rssFeedForm extends React.Component {
     );
   }
 }
-
 
 export default rssFeedForm;

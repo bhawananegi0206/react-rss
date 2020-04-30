@@ -1,11 +1,10 @@
+@import "../../styles/variables";
+
 .simpleList {
   margin: 2rem auto;
   max-width:25rem;
   a{
-    color:#00afab;
-  }
-  &-item{
-
+    color:$color-primary;
   }
   &-description{
     font-size: .8rem;
@@ -22,7 +21,7 @@
       cursor:pointer;
       transition:.2s linear;
       &:hover{
-        font-weight:bold;
+        font-weight:$font-weight-bold;
       }
     }
   }

@@ -53,8 +53,6 @@ class TextInput extends React.PureComponent {
       name,
       className,
       placeholder,
-      onKeyUp,
-      onKeyDown,
       icon,
       maxLength,
       errorMessage,
@@ -93,8 +91,6 @@ TextInput.defaultProps = {
 };
 
 TextInput.propTypes = {
-  onKeyUp: PropTypes.func,
-  onKeyDown: PropTypes.func,
   onChange: PropTypes.func,
   className: PropTypes.string,
   name: PropTypes.string.isRequired,
