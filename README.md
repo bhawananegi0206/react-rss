@@ -1,11 +1,11 @@
 # react-rss
 
-## Project setup
+## Installation(Install packages)
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and Start a local server with:
 ```
 npm start
 ```
@@ -19,5 +19,10 @@ npm run build
 ```
 npm run format
 ```
+
+
+### Local rss feed url to test
+
+http://localhost:8080//src/rssFeed/rssFeedSample.xml
 
 
