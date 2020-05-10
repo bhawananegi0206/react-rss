@@ -22,10 +22,10 @@ class SimpleList extends React.Component {
 
   render() {
     const { selectedItemList, currentPage, itemsPerPage } = this.state;
-    const { items } = this.props;
+    const { items, showAllItems} = this.props;
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const renderList = selectedItemList.slice(
+    const renderList = showAllItems && items || selectedItemList.slice(
       indexOfFirstItem,
       indexOfLastItem
     );
@@ -47,13 +47,13 @@ class SimpleList extends React.Component {
             </div>
           ))}
         </div>
-        <div className="simpleList-pagination flex flex-justify-center">
+        {!showAllItems && <div className="simpleList-pagination flex flex-justify-center">
           {pagination.map((number) => (
             <li key={number} id={number} onClick={this.handleClick}>
               {number}
             </li>
           ))}
-        </div>
+        </div>}
       </div>
     );
   }
@@ -65,6 +65,7 @@ SimpleList.defaultProps = {
 
 SimpleList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.string.isRequired),
+  showAllItems: PropTypes.bool.isRequired
 };
 
 export default SimpleList;

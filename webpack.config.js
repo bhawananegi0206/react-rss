@@ -23,6 +23,10 @@ module.exports = {
         ],
       },
       {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
         // for any file with a suffix of js or jsx
         test: /\.(js|jsx)$/,
         // ignore transpiling JavaScript from node_modules as it should be that state

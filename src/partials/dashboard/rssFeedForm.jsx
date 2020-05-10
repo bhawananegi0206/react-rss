@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import TextInput from "../../components/input/textInput";
 import SubmitButton from "../../components/button/submitButton";
 import SimpleList from "../../components/list/SimpleList";
@@ -29,12 +30,11 @@ class rssFeedForm extends React.Component {
       errors: "",
       invalidText: false,
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+  
   handleChange(e) {
     this.setState({
       rssFeedUrl: e,
@@ -47,32 +47,32 @@ class rssFeedForm extends React.Component {
     this.handleSave(this.state);
   }
 
-  fetchData(url) {
-    RssFeedService.fetch(url)
-      .then((response) => {
-        if (response.status !== 200) {
-          throw Error(response.response.statusText);
-        }
-        return response.data;
-      })
-      .then((responseData) => rssParser.parse(responseData))
-      .then((rss) => {
-        this.setState({
-          itemsList: downloadableLinks(rss.items),
-          title: rss.title,
-          description: rss.description,
-          invalidText: false,
-          errors: "",
-        });
-      })
-      .catch((error) =>
-        this.setState({
-          errors: error.response.statusText,
-          invalidText: false,
-          itemsList: [],
-        })
-      );
-  }
+  // fetchData(url) {
+  //   RssFeedService.fetch(url)
+  //     .then((response) => {
+  //       if (response.status !== 200) {
+  //         throw Error(response.response.statusText);
+  //       }
+  //       return response.data;
+  //     })
+  //     .then((responseData) => rssParser.parse(responseData))
+  //     .then((rss) => {
+  //       this.setState({
+  //         itemsList: downloadableLinks(rss.items),
+  //         title: rss.title,
+  //         description: rss.description,
+  //         invalidText: false,
+  //         errors: "",
+  //       });
+  //     })
+  //     .catch((error) =>
+  //       this.setState({
+  //         errors: error.response.statusText,
+  //         invalidText: false,
+  //         itemsList: [],
+  //       })
+  //     );
+  // }
 
   handleSave() {
     const url_pattern = /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i;
@@ -84,7 +84,8 @@ class rssFeedForm extends React.Component {
         errors: "",
       });
     } else {
-      this.fetchData(rssFeedUrl);
+      this.props.getData(rssFeedUrl);
+      //this.fetchData(rssFeedUrl);
     }
   }
 
@@ -96,13 +97,14 @@ class rssFeedForm extends React.Component {
       errors,
       title,
       description,
-      invalidText,
+      invalidText
     } = this.state;
+
 
     return (
       <>
         <div className="form--body rssFeed">
-          <form className="rssFeed  h-100" onSubmit={this.handleSubmit}>
+          <form className="h-100" onSubmit={this.handleSubmit}>
             <div className="flex flex-dir-col h-100">
               <div className="flex-1 flex flex-dir-col flex-align-center">
                 <h2 className="rssFeed-formtitle center uppercase">
@@ -131,15 +133,15 @@ class rssFeedForm extends React.Component {
             </div>
           </form>
           {errors && <ErrorMessages messages={errors} />}
-          {itemsList.length > 0 && [
-            <div className="rssFeed-listTitle center">{title}</div>,
-            <div className="rssFeed-listDesc center">{description}</div>,
-            <SimpleList items={itemsList} />,
-          ]}
         </div>
       </>
     );
   }
 }
 
+
+rssFeedForm.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  getData: PropTypes.func.isRequired
+}
 export default rssFeedForm;

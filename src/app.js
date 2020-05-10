@@ -1,10 +1,13 @@
-import React from "react";
-import Dashboard from "./partials/dashboard/dashboardwidget";
+import React, { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.css'
+import Dashboard from "./partials/dashboard/dashboardWidget";
 
-const App = () => (
+
+const App = () => {
+  return (
   <div className="App">
     <Dashboard />
   </div>
-);
+  ) };
 
 export default App;
