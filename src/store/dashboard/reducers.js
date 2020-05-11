@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import * as actionTypes from './actions';
 
-export function feedData(state = [], action) {
+export function feedData(state = {}, action) {
   switch (action.type) {
  case actionTypes.SET_FEED_DATA:
     return action.data;
