@@ -1,22 +1,22 @@
-// //  @import "../../styles/variables";
+ @import "../../styles/variables";
 
-// .textInput {
-//   position: relative;
-//   .error-message{
-//     color:$error-color;
-//     margin-top:.5rem;
-//   }
-//   input{
-//         width: 25rem;
-//         height: 3rem;
-//         border-radius: .5rem;
-//         box-shadow: none;
-//         width: 100%;
-//         padding: 1.2rem 2rem;
-//         margin: .8rem 0 0 ;
-//         display: inline-block;
-//         border: .1rem solid $color-three;
-//         border-radius: .4rem;
-//         box-sizing: border-box;
-//   }
-// }
+.textInput {
+  position: relative;
+  .error-message{
+    color:$error-color;
+    margin-top:.5rem;
+  }
+  input{
+        width: 25rem;
+        height: 3rem;
+        border-radius: .5rem;
+        box-shadow: none;
+        width: 100%;
+        padding: 1.2rem 2rem;
+        margin: .8rem 0 0 ;
+        display: inline-block;
+        border: .1rem solid $color-three;
+        border-radius: .4rem;
+        box-sizing: border-box;
+  }
+}

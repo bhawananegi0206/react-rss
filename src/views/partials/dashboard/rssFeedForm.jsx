@@ -1,19 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import TextInput from "../../../components/input/textInput";
-import SubmitButton from "../../../components/button/submitButton";
-import ErrorMessages from "../../../components/errors/errorMessages";
-import memoizeOne from "memoize-one";
+import TextInput from "../../../components/input/textInput.jsx";
+import SubmitButton from "../../../components/button/submitButton.jsx";
+import ErrorMessages from "../../../components/errors/errorMessages.jsx";
 import "./rssFeedForm.scss";
 
-const downloadableLinks = memoizeOne((items) =>
-  items.reduce((acc, item) => {
-    if (item.links[0].url.indexOf("http") === 0) {
-      acc.push(item);
-    }
-    return acc;
-  }, [])
-);
 
 class rssFeedForm extends React.Component {
   constructor() {
@@ -22,8 +13,6 @@ class rssFeedForm extends React.Component {
       rssFeedUrl: "",
       submitButtonDisabled: true,
       itemsList: [],
-      title: "",
-      description: "",
       errors: "",
       invalidText: false,
     };
@@ -44,37 +33,9 @@ class rssFeedForm extends React.Component {
     this.handleSave(this.state);
   }
 
-  // fetchData(url) {
-  //   RssFeedService.fetch(url)
-  //     .then((response) => {
-  //       if (response.status !== 200) {
-  //         throw Error(response.response.statusText);
-  //       }
-  //       return response.data;
-  //     })
-  //     .then((responseData) => rssParser.parse(responseData))
-  //     .then((rss) => {
-  //       this.setState({
-  //         itemsList: downloadableLinks(rss.items),
-  //         title: rss.title,
-  //         description: rss.description,
-  //         invalidText: false,
-  //         errors: "",
-  //       });
-  //     })
-  //     .catch((error) =>
-  //       this.setState({
-  //         errors: error.response.statusText,
-  //         invalidText: false,
-  //         itemsList: [],
-  //       })
-  //     );
-  // }
-
   handleSave() {
     const url_pattern = /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i;
     const { rssFeedUrl } = this.state;
-
     if (!rssFeedUrl.match(url_pattern)) {
       this.setState({
         invalidText: true,
@@ -82,7 +43,6 @@ class rssFeedForm extends React.Component {
       });
     } else {
       this.props.getData(rssFeedUrl);
-      //this.fetchData(rssFeedUrl);
     }
   }
 
@@ -90,10 +50,7 @@ class rssFeedForm extends React.Component {
     const {
       rssFeedUrl,
       submitButtonDisabled,
-      itemsList,
       errors,
-      title,
-      description,
       invalidText
     } = this.state;
 

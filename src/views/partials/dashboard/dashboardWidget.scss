@@ -1,13 +1,13 @@
-// @import "../../../styles/variables";
+@import "../../../styles/variables";
 
-// .dashboardWidgets {
-//   padding: 4rem 4rem 1rem;
-//   &-title{
-//     font-size:2rem;
-//     color:$color-primary;
-//     font-weight:$font-weight-bold;
-//   }
-//   .form-checkbox{
-//     margin-top:2rem;
-//   }
-// }
+.dashboardWidgets {
+  padding: 4rem 4rem 1rem;
+  &-title{
+    font-size:2rem;
+    color:$color-primary;
+    font-weight:$font-weight-bold;
+  }
+  .form-checkbox{
+    margin-top:2rem;
+  }
+}

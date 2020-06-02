@@ -24,9 +24,9 @@ npm run build
 npm run format
 ```
 
-### Local rss feed url to test
+###  Rss feed url to test
 
-http://localhost:8080//src/rssFeed/rssFeedSample.xml
+https://codepen.io/picks/feed/ 
 
 ### Breif Description
 
@@ -34,5 +34,5 @@ http://localhost:8080//src/rssFeed/rssFeedSample.xml
 2. Focused on reusable components
 3. Mixins and resuable classes
 4. Error handling for RSSfeed url format and no response case
-5. Added memoizeone to get only downloadble links
+5. 
 

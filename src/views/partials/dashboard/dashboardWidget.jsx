@@ -1,6 +1,6 @@
 import React from "react";
-import RssFeedForm from "./containers/rssFeedForm";
-import RssFeedResult from "./containers/rssFeedResult";
+import RssFeedForm from "./containers/rssFeedForm.js";
+import RssFeedResult from "./containers/rssFeedResult.js";
 import "./dashboardWidget.scss";
 
 

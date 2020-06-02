@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import rssFeedResult from '../rssFeedResult';
+import rssFeedResult from '../rssFeedResult.jsx';
 import * as selectors from '../../../../store/dashboard/selectors';
 import * as actions from '../../../../store/dashboard/actions';
 

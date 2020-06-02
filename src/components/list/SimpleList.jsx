@@ -42,7 +42,6 @@ class SimpleList extends React.Component {
                 <a href={it.links[0].url} className="simpleList-title" target="_blank">
                   {it.title}
                 </a>
-                <div className="simpleList-description">{it.description}</div>
               </div>
             </div>
           ))}

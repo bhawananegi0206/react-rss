@@ -1,29 +1,29 @@
-// // @import "../../styles/variables";
+@import "../../styles/variables";
 
-// .simpleList {
-//   margin: 2rem auto;
-//   max-width:25rem;
-//   a{
-//     color:$color-primary;
-//   }
-//   &-description{
-//     font-size: .8rem;
-//     margin-top: .3rem;
-//     font-style: italic;
-//   }
-//   &-pagination{
-//     list-style: none;
-//     margin: 2rem auto;
-//     max-width:25rem;
-//     li{
-//       margin:0 1rem;
-//       color:#00afab;
-//       font-size:1rem;
-//       cursor:pointer;
-//       transition:.2s linear;
-//       &:hover{
-//         font-weight:$font-weight-bold;
-//       }
-//     }
-//   }
-// }
+.simpleList {
+  margin: 2rem auto;
+  max-width:25rem;
+  a{
+    color:$color-primary;
+  }
+  &-description{
+    font-size: .8rem;
+    margin-top: .3rem;
+    font-style: italic;
+  }
+  &-pagination{
+    list-style: none;
+    margin: 2rem auto;
+    max-width:25rem;
+    li{
+      margin:0 1rem;
+      color:#00afab;
+      font-size:1rem;
+      cursor:pointer;
+      transition:.2s linear;
+      &:hover{
+        font-weight:$font-weight-bold;
+      }
+    }
+  }
+}

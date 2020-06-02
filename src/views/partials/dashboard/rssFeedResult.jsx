@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import SimpleList from "../../../components/list/SimpleList";
-import memoizeOne from "memoize-one";
+import SimpleList from "../../../components/list/SimpleList.jsx";
 
 import "./rssFeedResult.scss";
 
-const downloadableLinks = memoizeOne((items = []) =>
-  items.filter((item) => item.links[0].url.indexOf("http") === 0 ));
+const downloadableLinks = (items = []) =>
+  items.filter((item) => item.links[0].url.indexOf("http") === 0 );
 
 class rssFeedResult extends React.Component {
   constructor() {
@@ -25,7 +24,6 @@ class rssFeedResult extends React.Component {
     const itemsList = downloadableLinks(items);
     return (
       <>
-          {/* {errors && <ErrorMessages messages={errors} />} */}
            {itemsList.length > 0 && (<div className="rssFeedResult">
             <div className="rssFeedResult-listTitle center">{title}</div>
             <div className="rssFeedResult-listDesc center">{description}</div>

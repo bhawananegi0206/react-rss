@@ -12,17 +12,7 @@ const config = {
     },
     module: {
       rules: [
-        {
-          test: /\.s[ac]ss$/i,
-          use: [
-            // Creates `style` nodes from JS strings
-            'style-loader',
-            // Translates CSS into CommonJS
-            'css-loader',
-            // Compiles Sass to CSS
-            'sass-loader',
-          ],
-        },
+        { test: /\.(scss|css)$/, loader: "ignore-loader" },
         {
           // for any file with a suffix of js or jsx
           test: /\.(js|jsx)$/,
@@ -34,7 +24,7 @@ const config = {
       ],
     },
     resolve: {
-        extensions: [".js", ".jsx", ".json", ".wasm", ".mjs", "*", ".scss"]
+        extensions: [".js", ".jsx", ".json", ".wasm", ".mjs", "*"]
     }
 };
 

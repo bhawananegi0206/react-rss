@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import rssFeedForm from '../rssFeedForm';
+import rssFeedForm from '../rssFeedForm.jsx';
 import * as actions from '../../../../store/dashboard/actions';
 
 
