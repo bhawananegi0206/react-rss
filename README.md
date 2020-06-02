@@ -36,5 +36,4 @@ https://codepen.io/picks/feed/
 2. Focused on reusable components
 3. Mixins and resuable classes
 4. Error handling for RSSfeed url format and no response case
-5. 
 
