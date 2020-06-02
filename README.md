@@ -18,11 +18,13 @@ npm start
 npm run build
 ```
 
-### Format all files
+
+### Run code
 
 ```
-npm run format
+npm run start:dev
 ```
+
 
 ###  Rss feed url to test
 

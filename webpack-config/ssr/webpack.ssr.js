@@ -8,7 +8,7 @@ const config = {
   target: "node",
   externals: [nodeExternals()],
   entry: {
-    "app": path.resolve(__dirname, "../../src/views/index.js")
+    "index": path.resolve(__dirname, "../../src/views/partials/dashboard/dashboardWidget.jsx")
   },
   output: {
     path: path.resolve(__dirname, "./../../dist-ssr"),
